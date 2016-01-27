@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title><![CDATA[AndroiOS X]]></title>
+  <subtitle><![CDATA[孙凯旋的技术博客]]></subtitle>
+  <link href="/atom.xml" rel="self"/>
+  <link href="http://AndroiOSX.com/"/>
+  <updated>2016-01-27T16:11:11.000Z</updated>
+  <id>http://AndroiOSX.com/</id>
+  
+  <author>
+    <name><![CDATA[Kyle Sun]]></name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[利用Hexo和Github Pages搭建个人博客]]></title>
+    <link href="http://AndroiOSX.com/2016/01/26/%E5%88%A9%E7%94%A8Hexo%E5%92%8CGithub-Pages%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/"/>
+    <id>http://AndroiOSX.com/2016/01/26/利用Hexo和Github-Pages搭建个人博客/</id>
+    <published>2016-01-26T15:29:28.000Z</published>
+    <updated>2016-01-27T16:11:11.000Z</updated>
+    <content type="html"><![CDATA[<h2 id="u7B80_u4ECB"><a href="#u7B80_u4ECB" class="headerlink" title="简介"></a>简介</h2><ul>
+<li>Github Pages可以理解为一个用户编写的、托管在Github上的静态网页，它提供了300M的免费空间。因为是Github出品，所以足够稳定，这对于一个博客来说足够了。</li>
+<li>Hexo是一个快速、简洁且高效的博客框架。Hexo使用Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。</li>
+</ul>
+<h2 id="u914D_u7F6EGithub_Pages"><a href="#u914D_u7F6EGithub_Pages" class="headerlink" title="配置Github Pages"></a>配置Github Pages</h2><p>这里假设你已经安装了git，拥有了Github的帐号，配置好了ssh key。</p>
+<h3 id="u5728Github_u4E0A_u5EFA_u7ACB_u4ED3_u5E93"><a href="#u5728Github_u4E0A_u5EFA_u7ACB_u4ED3_u5E93" class="headerlink" title="在Github上建立仓库"></a>在Github上建立仓库</h3><p>登录Github之后点击首页的New repository创建一个新的仓库。</p>
+<ul>
+<li>需要注意的是创建仓库的时候Repository name是特定的，不能随意起名字。比如我的账户名是skx926，这个仓库的名字就只能叫skx926.github.io，也就是说一个帐号只能创建一个Github Pages页面。</li>
+</ul>
+<p>创建完成之后我们可以把这个空的仓库克隆到本地自己喜欢的任意目录。</p>
+<h2 id="u4F7F_u7528Hexo"><a href="#u4F7F_u7528Hexo" class="headerlink" title="使用Hexo"></a>使用Hexo</h2><h3 id="u5B89_u88C5Hexo"><a href="#u5B89_u88C5Hexo" class="headerlink" title="安装Hexo"></a>安装Hexo</h3><p>要安装Hexo必须先安装nodejs，这里假设你已经安装好了nodejs。使用下面的命令安装Hexo。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -g hexo</span><br></pre></td></tr></table></figure>
+<h3 id="u521B_u5EFA_u535A_u5BA2"><a href="#u521B_u5EFA_u535A_u5BA2" class="headerlink" title="创建博客"></a>创建博客</h3><p>在终端输入下面的命令会在当前目录下创建一个名为skx926的文件夹，比并且Hexo会在此目录生成建立博客的所有文件。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo init skx926</span><br></pre></td></tr></table></figure>
+<p>输入下面的命令就会运行起刚刚创建好的博客，在浏览器输入<a href="http://0.0.0.0:4000" target="_blank" rel="external">http://0.0.0.0:4000</a> 预览一下你的博客。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<h3 id="u4E0B_u8F7D_u4E3B_u9898"><a href="#u4E0B_u8F7D_u4E3B_u9898" class="headerlink" title="下载主题"></a>下载主题</h3><p>我们刚才创建好的博客里面包含了默认的主题landscape，你可以在/yourblog/themes文件夹下看到。不过这个主题我个人感觉不好看，好在Hexo有大量丰富的<a href="https://hexo.io/themes/" target="_blank" rel="external">Themes</a>可供我们选择，我个人比较喜欢<a href="https://github.com/tufu9441/maupassant-hexo" target="_blank" rel="external">Maupassant</a>这个主题。确保终端现在位于博客的根目录下，然后使用下面的命令将主题下载到博客的themes目录下。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="built_in">clone</span> https://github.com/tufu9441/maupassant-hexo.git themes/maupassant</span><br></pre></td></tr></table></figure>
+<h3 id="u914D_u7F6E_u535A_u5BA2"><a href="#u914D_u7F6E_u535A_u5BA2" class="headerlink" title="配置博客"></a>配置博客</h3><p>打开_config.yml文件，这个文件就是整个博客的配置文件，你可以修改里面的参数来对你的博客进行个性化的设置，比如设置博客的名称、主题什么的。我现在将主题修改成刚才下载的主题的名字maupassant，然后使用下面的命令预览一下新的主题。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server --watch</span><br></pre></td></tr></table></figure>
+<p>你可能注意到这里的命令比上面的多了个参数–watch，这个命令的作用就是监听文件的变化，只要有变动，就会自动重新生成博客的页面，就不用每次改一点东西都要手动运行一下hexo server命令了。</p>
+<ul>
+<li>其实除了根目录的_config.yml文件以外每个主题的文件夹里都会有一个_config.yml文件，这些文件是对它所对应的主题的一些设置。</li>
+</ul>
+<h3 id="u53D1_u8868_u535A_u6587"><a href="#u53D1_u8868_u535A_u6587" class="headerlink" title="发表博文"></a>发表博文</h3><p>使用下面的命令新建一个博文。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"我的第一篇博文"</span></span><br></pre></td></tr></table></figure>
+<p>执行完命令你会发现 sources/_posts 文件夹内多了一个 “我的第一篇博文.md” 文件，这个就是文章的<a href="https://daringfireball.net/projects/markdown/" target="_blank" rel="external">markdown</a>格式的源文件。你也可以直接进入 sources/_posts 目录新建一个文件。这两种方式的区别就是前者生成的文件中会自动配置好一些文章的信息，比如名称、时间等。下面就是一篇新建的博文的示例。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">title: &#25105;&#30340;&#31532;&#19968;&#31687;&#21338;&#25991;&#10;&#10;date: 2016-01-26 23:44:09&#10;&#10;tags: [&#21338;&#23458;, Hexo]&#10;&#10;categories: Web&#10;---&#10;&#10;&#22914;&#20309;&#26032;&#24314;&#19968;&#20010;&#21338;&#23458;&#21602;&#65311;</span><br></pre></td></tr></table></figure>
+<p>tags是这篇博文的标签，categories是文章的分类，分类和标签都可以添加多个，用中括号括起来，中间用英文的逗号隔开。—的后面就是博文的正文部分了。</p>
+<h3 id="u90E8_u7F72_u5230Github_Pages"><a href="#u90E8_u7F72_u5230Github_Pages" class="headerlink" title="部署到Github Pages"></a>部署到Github Pages</h3><p>文章写好了，怎么把它发布到网站上去呢？<br>比较传统的方法是先用下面的命令生成博客的静态页面文件。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>你会发现多了一个public文件夹，这个文件夹里就是生成的目标文件，把文件复制到我们一开始克隆到本地的仓库中去，然后再通过git的各种命令提交到Github远程仓库。</p>
+<p>你可能会想：这也太麻烦了吧？一点也不优雅。是的，hexo已经为我们解决了这个问题，使用deploy命令就可以一键吧pulic文件夹呢的静态页面文件提交到远程Github仓库里。但是使用这个命令之前我们需要做一些配置，打开_config.yml文件，在里面添加下面的内容，如果已经有的话就只需要修改一下。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">deploy:&#10;  type: git&#10;  repository: https://github.com/skx926/skx926.github.io.git&#10;  branch: master</span><br></pre></td></tr></table></figure>
+<p>repository就是我们一开始创建的Github仓库的地址。修改完成然后保存一下。由于新版的Hexo已经将deploy分离出来，所以我们需要安装一下它，执行下面的命令安装。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+<p>安装完之后使用下面的命令进行部署。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo d -g</span><br></pre></td></tr></table></figure>
+<p>上面的命令其实是做了两件事，第一件事通过generate命令生成页面，紧接着通过deploy命令将其部署到Github。顺利的话打开浏览器输入你的仓库的名称就可以看到博客里，例如我的是<a href="http://skx926.github.io" target="_blank" rel="external">skx926.github.io</a>。</p>
+<h3 id="u7248_u672C_u7BA1_u7406"><a href="#u7248_u672C_u7BA1_u7406" class="headerlink" title="版本管理"></a>版本管理</h3><p>其实到这里搭建博客的整个过程已经基本上完成了，但是有个问题，就是：我们把博客的页面部署到了Github，但是博客的源文件还在本地，万一哪天电脑坏了，岂不是没了？其实这个问题很简单，直接在Github上再新建一个仓库来存储博客的源文件不就完了？处女座的人表示无法忍受一个博客两个仓库这种事，不过这个只是我自己的解决办法，不一定是最好的解决方案，但是能解决问题，先凑合着用吧。</p>
+<h2 id="u7ED1_u5B9A_u57DF_u540D"><a href="#u7ED1_u5B9A_u57DF_u540D" class="headerlink" title="绑定域名"></a>绑定域名</h2><p>Github Pages本身就已经给你免费提供了一个二级域名，但是很多人想我一样不喜欢这个域名，想要绑定自己的域名，那该怎么办呢？其实很简单，首先你得有个域名。关于注册域名，网上有很多教程，这里就不说了，有一个域名比价的网站我觉得挺不错的，地址是<a href="https://www.domcomp.com。" target="_blank" rel="external">https://www.domcomp.com。</a><br>这里假设你已经有一个自己域名了。</p>
+<ol>
+<li>在sources文件夹下新建一个叫CNAME的文件，文件的内容就写你的域名地址，比如我的androiosx.com。</li>
+<li>在你的域名服务商提供的DNS管理页面添加相应的纪录或者使用DNSPod进行解析，我推荐使用DNSPod。</li>
+</ol>
+<h3 id="u4F7F_u7528DNSPod_u89E3_u6790_u57DF_u540D"><a href="#u4F7F_u7528DNSPod_u89E3_u6790_u57DF_u540D" class="headerlink" title="使用DNSPod解析域名"></a>使用DNSPod解析域名</h3><p>首先你需要注册一个<a href="https://www.dnspod.cn" target="_blank" rel="external">DNSPod</a>帐号，登录成功后在域名解析模块添加一个域名。添加完成打开这个域名你会发现有两条默认的NS纪录，我们需要添加两条CNAME类型的纪录，主机纪录分别写@和www，纪录值就写Github为你提供的域名的地址，比如我的<a href="http://skx926.github.io" target="_blank" rel="external">skx926.github.io</a>，其他的都保持默认。</p>
+<p>添加完成之后分别复制那两条默认的NS纪录后面的纪录值f1g1ns1.dnspod.net.和f1g1ns2.dnspod.net.。然后进入你的域名提供商的管理面板，找到域名的NameServer管理，使用刚才复制的DNSPod提供的NameServer替换掉默认的NameServer，替换完成后保存就大功告成了。</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[搭建一个博客有许多种方法，本文中使用的Github Pages + Hexo的方案绝对简单又实用。Github Pages可以理解为一个用户编写的、托管在Github上的静态网页，它提供了300M的免费空间。Hexo是一个快速、简洁且高效的博客框架。Hexo使用Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。]]>
+    
+    </summary>
+    
+      <category term="DNSPod" scheme="http://AndroiOSX.com/tags/DNSPod/"/>
+    
+      <category term="Hexo" scheme="http://AndroiOSX.com/tags/Hexo/"/>
+    
+      <category term="Web" scheme="http://AndroiOSX.com/categories/Web/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[Mac如何生成Unix可执行文件]]></title>
+    <link href="http://AndroiOSX.com/2014/12/04/Mac%E5%A6%82%E4%BD%95%E7%94%9F%E6%88%90Unix%E5%8F%AF%E6%89%A7%E8%A1%8C%E6%96%87%E4%BB%B6/"/>
+    <id>http://AndroiOSX.com/2014/12/04/Mac如何生成Unix可执行文件/</id>
+    <published>2014-12-03T18:00:00.000Z</published>
+    <updated>2014-12-03T15:49:07.000Z</updated>
+    <content type="html"><![CDATA[<p>Yosemite升级10.10.2 prerelease版本之后蛋疼的事情发生了，safari打不开github不说，就连google chrome也一打开就崩溃，升级到40的dev版本依旧崩溃，网上找了找，遇到同样问题的还挺多，有人已经提供了临时的解决办法</p>
+<ol>
+<li><p>将以下代码保存为<code>patch.m</code>文件</p>
+<pre><code>#import &lt;AppKit/AppKit.h&gt;
+
+__attribute((constructor)) void Patch_10_10_2_entry()
+{
+    NSLog(@&quot;10.10.2 patch loaded&quot;);
+}
+
+@interface NSTouch ()
+- (id)_initWithPreviousTouch:(NSTouch *)touch newPhase:(NSTouchPhase)phase position:(CGPoint)position     isResting:(BOOL)isResting force:(double)force;
+@end
+
+@implementation NSTouch (Patch_10_10_2)
+- (id)_initWithPreviousTouch:(NSTouch *)touch newPhase:(NSTouchPhase)phase position:(CGPoint)position     isResting:(BOOL)isResting
+{
+    return [self _initWithPreviousTouch:touch newPhase:phase position:position isResting:isResting force:0];
+}
+@end
+</code></pre></li>
+<li><p>下面需要将源文件生成一个动态库, 前提是要装Xcode,在终端中执行下面的代码,完成后桌面的<code>patch.m</code>文件会变成<code>patch.dylib</code>动态链接库文件.</p>
+<pre><code>clang -dynamiclib -framework AppKit ~/Desktop/patch.m -o ~/Desktop/patch.dylib
+</code></pre></li>
+<li><p>然后在终端中执行下面的命令给<code>Chrome</code>打补丁,同时Chrome浏览器也会打开</p>
+<pre><code>env DYLD_INSERT_LIBRARIES=~/Desktop/patch.dylib &quot;/Applications/Google Chrome.app/Contents/MacOS/Google Chrome&quot;
+</code></pre></li>
+</ol>
+<p>这样就大功告成了,Chrome不会崩溃了,但是这个终端窗口不能关,关了之后Chrome就无法正常运行了.但是这样新的问题就来了,重新打开都需要在终端执行第3步的命令,如果每次都这样太麻烦了,一点也不优雅,有没有优雅一点的办法呢?当然有,下面就来说说如何今天的重点</p>
+<p>###如何生成Mac上的可执行文件</p>
+<p>我们需要用到类Unix操作系统的一个命令<code>chmod</code>, <code>chmod</code>是用来改变文件文件的存取模式的, 我猜就是Change Mode的意思. </p>
+<ol>
+<li><p>首先我们新建一个文本文件, 输入上面第3步的终端命令,另存为没有格式的文件, 比如文件名为Chrome.</p>
+<pre><code>clang -dynamiclib -framework AppKit ~/Desktop/patch.m -o ~/Desktop/patch.dylib
+</code></pre></li>
+<li><p>然后打开终端, 输入下面的命令</p>
+<pre><code>sudo chmod u+x script
+</code></pre><p> 注意<code>script</code>就是刚才创建的<code>Chrome</code>文件的绝对路径,比如此处将<code>script</code>替换为<code>/Users/Sun/Desktop/Chrome</code>. </p>
+</li>
+</ol>
+<p>执行完命令之后我们就会发现<code>Chrome</code>文件的图标变成了类似终端的图标的样子,这样就已经生成了可执行文件了, 双击这个文件就会自动打开终端执行文件里的命令启动Chrome浏览器了.</p>
+<p>这条<code>chmod</code>命令中的u就是User用户, <code>+</code>是增加权限, <code>x</code>是执行, 总的来说就是给这个文件增加用户和执行的模式.</p>
+<p>对于<code>chmod</code>命令更加详细的解释可以参看这里:<a href="http://www.cnblogs.com/younes/archive/2009/11/20/1607174.html" target="_blank" rel="external">Linux chmod命令详解</a></p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>Yosemite升级10.10.2 prerelease版本之后蛋疼的事情发生了，safari打不开github不说，就连google chrome也一打开就崩溃，升级到40的dev版本依旧崩溃，网上找了找，遇到同样问题的还挺多，有人已经提供了临时的解决办法</p>
+<ol]]>
+    </summary>
+    
+      <category term="Mac技巧" scheme="http://AndroiOSX.com/categories/Mac%E6%8A%80%E5%B7%A7/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[对extern的理解]]></title>
+    <link href="http://AndroiOSX.com/2014/12/04/%E5%AF%B9extern%E7%9A%84%E7%90%86%E8%A7%A3/"/>
+    <id>http://AndroiOSX.com/2014/12/04/对extern的理解/</id>
+    <published>2014-12-03T17:46:00.000Z</published>
+    <updated>2016-01-25T17:22:14.000Z</updated>
+    <content type="html"><![CDATA[<p>很少用到extern这个关键字，对它的了解也只停留在大学课堂那一点印象：外部变量，与局部变量相对。<br>最近项目中需要用到全局变量，使用全局变量大体上分为3种方式：</p>
+<ul>
+<li>给AppDelegate增加property</li>
+<li>使用单例模式，其实这个方法跟上一个方法比较类似，因为UIApplication的delegate也同样是一个单例，所以它的属性可以全局去访问</li>
+<li>使用外部变量extern关键字</li>
+</ul>
+<p>重点说说第三种方法，iOS里面使用extern关键字一般是用来声明全局的变量，在.h文件中声明：</p>
+<pre><code>extern NSString * const kLoginSuccessNotification;
+</code></pre><p>在.m文件中对变量进行赋值：</p>
+<pre><code>NSString * const kLoginSuccessNotification = @&quot;kLoginSuccessNotification&quot;;
+</code></pre><p>使用的时候只需要包含.h文件就可以通过变量名进行调用了。我开始的时候很奇怪这种写法的意义何在，相比宏定义来说要麻烦许多，工作量是宏定义的两倍。声明和实现分开写虽然增加了工作量，但是可以很好的隐藏常量的实际值，不让其他人访问。而且这样常量的类型是明确的，相比宏定义简单的字符串替换，编译器可以在编译阶段就检查出代码中的错误，使得我们的代码更加安全。</p>
+<p>但是如果我们用相同的方法声明一个全局变量：</p>
+<pre><code>extern NSString * IMAPIRequestURL;
+</code></pre><p>因为我们不知道真实的值，所以不对其进行赋值，如果通过以下代码使用这个变量</p>
+<pre><code>extern NSString * IMAPIRequestURL;
+IMAPIRequestURL = @“http://www.google.com”;
+</code></pre><p>编译器就会报 ld: symbol(s) not found for architecture i386 错误，网上找到了半天在stackoverflow上找到了答案，原来是我对extern的理解还不够，回答着原文是这样的</p>
+<pre><code>extern means: &quot;this thing is defined somewhere else&quot;
+</code></pre><p>看到这个答案我恍然大悟，extern关键字告诉编译器我要使用的这个变量已经在其他地方定义了，但是声明和使用的时候都是用了extern关键字，编译器都是去别的文件找，找不到就自然报错了。所以解决办法就是在.m文件中对其进行实现，实现的时候就不能加extern关键字了</p>
+<pre><code>NSString * IMRequestURL = @&quot;http://www.google.com&quot;;
+</code></pre>]]></content>
+    <summary type="html">
+    <![CDATA[<p>很少用到extern这个关键字，对它的了解也只停留在大学课堂那一点印象：外部变量，与局部变量相对。<br>最近项目中需要用到全局变量，使用全局变量大体上分为3种方式：</p>
+<ul>
+<li>给AppDelegate增加property</li>
+<li>使用单例模式，其]]>
+    </summary>
+    
+      <category term="iOS开发" scheme="http://AndroiOSX.com/categories/iOS%E5%BC%80%E5%8F%91/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[我为什么写博客]]></title>
+    <link href="http://AndroiOSX.com/2014/11/14/%E6%88%91%E4%B8%BA%E4%BB%80%E4%B9%88%E5%86%99%E5%8D%9A%E5%AE%A2/"/>
+    <id>http://AndroiOSX.com/2014/11/14/我为什么写博客/</id>
+    <published>2014-11-14T14:30:00.000Z</published>
+    <updated>2014-12-02T17:56:41.000Z</updated>
+    <content type="html"><![CDATA[<p>2014-11-16 Tina Luo 编辑</p>
+<p>博客的种类很多，有人喜欢写技术，有人喜欢写生活，有人记录自己的旅行…我为什么要写博客呢？</p>
+<p>一说到写博客我立马想到了写作文，一说的写作文我又立马想到了写日记，一说到写日记我突然又记起了记笔记。从小到大，写作一直是我的硬伤。虽然我很想写好日记，但写出来就像流水账；虽然我很想写好作文，但总是凑不够800字；虽然我很想做好笔记，但写出来就是一坨翔😂。此时我的脑海中突然回响起龚琳娜老师的神曲</p>
+<blockquote>
+<p>伤不起，真的伤不起…</p>
+</blockquote>
+<p>虽然写作水平不高，但是，至少我还有逼格，我还有梦想！说来也怪，我这个写作文都凑不够800字的人看了那些大牛写的博客，也忍不住想自己试试。</p>
+<ul>
+<li><p>一来可以陶冶陶冶情操。程序猿这个职业虽然一般都很忙，但也有闲下来的时候，可能是加班加习惯了，闲下来的时候倒有一种莫名的空虚，不知道该做点什么。这种时候既然不想码代码了，码码文字貌似也不错😁</p>
+</li>
+<li><p>写代码的时候很多情况下遇到自己无法解决的问题都要各种Google，各种百度（虽然百度一直被我所鄙视，不想看英文的时候百度也能凑活用用），因为我不善于做笔记，记性也不怎么好，再次遇到同样的问题可能又需要Google，浪费的时间就不说了，关键有时候还真就再也找不到了…所以我想把平时工作中遇到的一些比较重要的问题在博客中记录下来，便于自己再次查看，同时也可以分享给大家。</p>
+</li>
+<li><p>从小都不怎么记日记，家里穷不怎么照相，所以现在对小时候的很多记忆都已模糊不清，所以我想通过这个blog来弥补之前的遗憾，从现在起，开始记录生活中的点点滴滴，记录自己的一步步成长。也希望多年以后的我，看到现在写的东西可以豪爽的来一句</p>
+</li>
+</ul>
+<blockquote>
+<p>这是我写的东西吗？这TMD简直就是一坨翔…</p>
+</blockquote>
+<ul>
+<li>不知道你们发现一些好东西，比如软件啊，网站啊之类的会不会很想分享给别人。于我而言，这种分享欲是很强的，每次看到好的东西就想分享给别人，当得到别人的一句赞同时自己就会觉得很爽。而像微博，微信朋友圈这种东西就是抓住了人的这一点，让你每天分享自己的生活给他人，别人给你点个赞就偷着笑，还为此乐此不疲。</li>
+</ul>
+<p>暂时就想到这些，想到其他的再更新吧。</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>2014-11-16 Tina Luo 编辑</p>
+<p>博客的种类很多，有人喜欢写技术，有人喜欢写生活，有人记录自己的旅行…我为什么要写博客呢？</p>
+<p>一说到写博客我立马想到了写作文，一说的写作文我又立马想到了写日记，一说到写日记我突然又记起了记笔记。从小到大，]]>
+    </summary>
+    
+      <category term="闲言碎语" scheme="http://AndroiOSX.com/categories/%E9%97%B2%E8%A8%80%E7%A2%8E%E8%AF%AD/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[iOS图片圆角实现和性能优化]]></title>
+    <link href="http://AndroiOSX.com/2014/11/13/iOS%E5%9B%BE%E7%89%87%E5%9C%86%E8%A7%92%E5%AE%9E%E7%8E%B0%E5%92%8C%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/"/>
+    <id>http://AndroiOSX.com/2014/11/13/iOS图片圆角实现和性能优化/</id>
+    <published>2014-11-13T04:31:19.000Z</published>
+    <updated>2016-01-25T17:22:01.000Z</updated>
+    <content type="html"><![CDATA[<p>iOS的系统之中用了大量的圆角和圆形的图案，为了是我们的应用更加“接地气”，在iOS开发中我们也会不可避免的需要为自己的View添加圆角。</p>
+<p>####我在开发中使用圆角有两种情况:</p>
+<ul>
+<li>圆形的用户头像</li>
+<li>给View或Button添加圆角</li>
+</ul>
+<p>这两种情况都可以设置View的CALayer属性的cornerRadius属性来产生圆角，使用方法很简单</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">view<span class="variable">.layer</span><span class="variable">.cornerRadius</span> = <span class="number">5.0</span></span><br></pre></td></tr></table></figure>
+<p>如果只需要一个带圆角的Button或者Label，这个方法就已经可以满足你的需求了，但是对于头像，只是给UIImageView设置cornerRadius属性只是让这个View产生了圆角，真正的Image在View的上层，因此图像不会被裁剪，为了对Image进行裁剪，我们需要设置layer的另一个属性</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">view<span class="variable">.layer</span><span class="variable">.masksToBounds</span> = <span class="literal">YES</span></span><br></pre></td></tr></table></figure>
+<p>这样貌似很好的解决了圆形头像的问题，但是问题来了，当我真机运行程序的时候，滑动TableView会有明显的卡顿，我的界面并不复杂，TableView的Cell当中只有一个圆形的头像和几个Label，一屏也就七八个Cell，Cell的重用也没有问题，那为什么会有卡顿呢？经过多次的尝试终于发现这个罪魁祸首就是设置masksToBounds属性为YES，只要把这个属性设置为NO，界面立马就流畅了。但是设置为NO的话，圆形的头像效果就没有了，我感觉这是Cocoa框架的Bug，看来这条路是走不通了。那有没有别的办法呢？</p>
+<p>办法是有的，既然给UIImageView添加圆角行不通我们可以选择利用CoreGraphic框架将图片直接裁剪成圆形，方法如下</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Begin a new image that will be the new image with the rounded corners</span></span><br><span class="line"><span class="comment">// (here with the size of an UIImageView)</span></span><br><span class="line"><span class="built_in">UIGraphicsBeginImageContextWithOptions</span>(<span class="keyword">self</span><span class="variable">.bounds</span><span class="variable">.size</span>, <span class="literal">NO</span>, <span class="number">0.0</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// Add a clip before drawing anything, in the shape of an rounded rect</span></span><br><span class="line">[[<span class="built_in">UIBezierPath</span> bezierPathWithRoundedRect:<span class="keyword">self</span><span class="variable">.bounds</span> cornerRadius:<span class="keyword">self</span><span class="variable">.bounds</span><span class="variable">.size</span><span class="variable">.width</span>/<span class="number">2</span>] addClip];</span><br><span class="line">                                        </span><br><span class="line"><span class="comment">// Draw your image</span></span><br><span class="line">[image drawInRect:<span class="keyword">self</span><span class="variable">.bounds</span>];</span><br><span class="line">            </span><br><span class="line"><span class="comment">// Get the image, here setting the UIImageView image</span></span><br><span class="line"><span class="keyword">self</span><span class="variable">.image</span> = <span class="built_in">UIGraphicsGetImageFromCurrentImageContext</span>();</span><br><span class="line">            </span><br><span class="line"><span class="comment">// Lets forget about that we were drawing</span></span><br><span class="line"><span class="built_in">UIGraphicsEndImageContext</span>();</span><br></pre></td></tr></table></figure>
+<p>经过测试，这种方式在图片较多的情况下依然会有轻微的卡顿，但比起第一种方法已经改善了很多，基本可以满足项目的需求。</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>iOS的系统之中用了大量的圆角和圆形的图案，为了是我们的应用更加“接地气”，在iOS开发中我们也会不可避免的需要为自己的View添加圆角。</p>
+<p>####我在开发中使用圆角有两种情况:</p>
+<ul>
+<li>圆形的用户头像</li>
+<li>给View或Butt]]>
+    </summary>
+    
+      <category term="iOS开发" scheme="http://AndroiOSX.com/categories/iOS%E5%BC%80%E5%8F%91/"/>
+    
+  </entry>
+  
+</feed>
