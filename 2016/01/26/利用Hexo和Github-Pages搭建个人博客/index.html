@@ -24,8 +24,9 @@
 <li>其实除了根目录的_config.yml文件以外每个主题的文件夹里都会有一个_config.yml文件，这些文件是对它所对应的主题的一些设置。</li>
 </ul>
 <h4 id="u53D1_u8868_u535A_u6587"><a href="#u53D1_u8868_u535A_u6587" class="headerlink" title="发表博文"></a>发表博文</h4><p>使用下面的命令新建一个博文。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"我的第一个博文"</span></span><br></pre></td></tr></table></figure>
-<p>执行完命令你会发现 sources/_posts 文件夹内多了一个 “我的第一个博文.md” 文件，这个就是文章的markdown格式的源文件。你也可以直接进入 sources/_posts 目录新建一个文件。这两种方式的区别就是前者生成的文件中会自动配置好一些文章的信息，比如名称、时间等。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"我的第一篇博文"</span></span><br></pre></td></tr></table></figure>
+<p>执行完命令你会发现 sources/_posts 文件夹内多了一个 “我的第一篇博文.md” 文件，这个就是文章的<a href="https://daringfireball.net/projects/markdown/" target="_blank" rel="external">markdown</a>格式的源文件。你也可以直接进入 sources/_posts 目录新建一个文件。这两种方式的区别就是前者生成的文件中会自动配置好一些文章的信息，比如名称、时间等。下面就是一篇新建的博文的示例。</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">title: 我的第一篇博文</span><br><span class="line"></span><br><span class="line">date: 2016-01-26 23:44:09</span><br><span class="line"></span><br><span class="line">tags: [博客, Hexo]</span><br><span class="line"></span><br><span class="line"><span class="header">categories: Web</span><br><span class="line">---</span></span><br><span class="line"></span><br><span class="line">如何新建一个博客呢？</span><br></pre></td></tr></table></figure>
 </div><div class="tags"><a href="/tags/Hexo/">Hexo</a></div><div class="post-nav"><a href="/2014/12/04/Mac如何生成Unix可执行文件/" class="next">Mac如何生成Unix可执行文件<i class="icon-next"></i></a></div><div id="disqus_thread"><script>var disqus_shortname = 'skx926';
 var disqus_identifier = '2016/01/26/利用Hexo和Github-Pages搭建个人博客/';
 var disqus_title = '利用Hexo和Github Pages搭建个人博客';
