@@ -4,7 +4,7 @@
   <subtitle><![CDATA[孙凯旋的技术博客]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://AndroiOSX.com/"/>
-  <updated>2016-02-15T10:51:47.000Z</updated>
+  <updated>2016-03-13T07:19:01.000Z</updated>
   <id>http://AndroiOSX.com/</id>
   
   <author>
@@ -19,7 +19,7 @@
     <link href="http://AndroiOSX.com/2016/02/04/%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84Shadowsocks%E7%BF%BB%E5%A2%99%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
     <id>http://AndroiOSX.com/2016/02/04/搭建自己的Shadowsocks翻墙服务器/</id>
     <published>2016-02-04T09:40:35.000Z</published>
-    <updated>2016-02-15T10:51:47.000Z</updated>
+    <updated>2016-03-13T07:19:01.000Z</updated>
     <content type="html"><![CDATA[<p>其实现在网上已经有很多类似的文章了，这种教程对于大多数人来说可能只需要看一次就行了，但也有可能过一段时间服务器被墙了或者速度不行ping值太高需要重新在新的服务器上搭建。所以我在此把我搭建以及优化的过程纪录一下，以便不时之需。</p>
 <h2 id="u4E3A_u4EC0_u4E48_u8981_u7FFB_u5899"><a href="#u4E3A_u4EC0_u4E48_u8981_u7FFB_u5899" class="headerlink" title="为什么要翻墙"></a>为什么要翻墙</h2><p>我已经想不起来我是什么时候开始翻墙了，其实我一开始翻墙就是为了多了解一些关于我党的黑历史，希望上Twitter、facebook、Google、Youtube能发现一些普通人所不知道的事情。一开始确实如我所愿，但是知道这些事情并不能改变什么，渐渐的对这些事情失去了兴趣。后来随着技术的学习，对国外的产品和技术产生了一定的崇拜，尤其是Google，但是万恶的GFW阻断了我和这些优秀的产品和技术之间的联系，所以我不得不翻墙来继续保持我和它们的联系。</p>
 <h2 id="u4E3A_u4EC0_u4E48_u8981_u642D_u5EFA_u81EA_u5DF1_u7684_u7FFB_u5899_u670D_u52A1_u5668"><a href="#u4E3A_u4EC0_u4E48_u8981_u642D_u5EFA_u81EA_u5DF1_u7684_u7FFB_u5899_u670D_u52A1_u5668" class="headerlink" title="为什么要搭建自己的翻墙服务器"></a>为什么要搭建自己的翻墙服务器</h2><p>翻墙有很多的渠道和方法，大多数人嫌麻烦，购买一个商业的VPN就行了，这个确实不失为一个好方法。但是我们伟大的墙随着时间的推移变得越来越智能，它已经能够通过对数据包的深度监测发现你是否在翻墙，从而阻断你的连接。常见的例如PPTP、L2TP之类的VPN协议特征比较明显，很容易被墙发现。根据我的使用体验，基本上连上几分钟后就断开了，有时候甚至连接不上。而Shadowsocks是基于一种自定义的协议，相对而言墙更难检测，所以也较为稳定。</p>
@@ -35,7 +35,7 @@
 <h2 id="u5B89_u88C5Shadowsocks"><a href="#u5B89_u88C5Shadowsocks" class="headerlink" title="安装Shadowsocks"></a>安装Shadowsocks</h2><p>成功购买VPS之后你应该已经能够获取到你的VPS的IP地址，root账号的密码。打开终端，使用ssh登录服务器：</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ ssh root@你的VPS的IP地址</span><br></pre></td></tr></table></figure>
 <p>然后会提示你输入密码，密码不会显示，输入完成后回车即可。登录成功之后依次输入下面的命令：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ yum install epel-release</span><br><span class="line">$ yum update$ easy_install pip$ pip install shadowsocks</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">// Cent OS使用下面的方法安装</span><br><span class="line">$ yum install epel-release</span><br><span class="line">$ yum update$ easy_install pip$ pip install shadowsocks</span><br><span class="line"></span><br><span class="line">// Debian使用下面的命令</span><br><span class="line">$ apt-get install python-pip</span><br><span class="line">$ pip install shadowsocks</span><br></pre></td></tr></table></figure>
 <p>等待安装完成之后我们需要配置一下Shadowsocks的账号，使用下面的命令新建一个Shadowsocks的配置文件：</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ vi /etc/shadowsocks.json</span><br></pre></td></tr></table></figure>
 <p>这时点击i键进入编辑模式，然后将下面的内容复制粘贴过去：</p>
@@ -150,57 +150,31 @@
     <link href="http://AndroiOSX.com/2014/12/04/Mac%E5%A6%82%E4%BD%95%E7%94%9F%E6%88%90Unix%E5%8F%AF%E6%89%A7%E8%A1%8C%E6%96%87%E4%BB%B6/"/>
     <id>http://AndroiOSX.com/2014/12/04/Mac如何生成Unix可执行文件/</id>
     <published>2014-12-03T18:00:00.000Z</published>
-    <updated>2014-12-03T15:49:07.000Z</updated>
-    <content type="html"><![CDATA[<p>Yosemite升级10.10.2 prerelease版本之后蛋疼的事情发生了，safari打不开github不说，就连google chrome也一打开就崩溃，升级到40的dev版本依旧崩溃，网上找了找，遇到同样问题的还挺多，有人已经提供了临时的解决办法</p>
-<ol>
-<li><p>将以下代码保存为<code>patch.m</code>文件</p>
-<pre><code>#import &lt;AppKit/AppKit.h&gt;
-
-__attribute((constructor)) void Patch_10_10_2_entry()
-{
-    NSLog(@&quot;10.10.2 patch loaded&quot;);
-}
-
-@interface NSTouch ()
-- (id)_initWithPreviousTouch:(NSTouch *)touch newPhase:(NSTouchPhase)phase position:(CGPoint)position     isResting:(BOOL)isResting force:(double)force;
-@end
-
-@implementation NSTouch (Patch_10_10_2)
-- (id)_initWithPreviousTouch:(NSTouch *)touch newPhase:(NSTouchPhase)phase position:(CGPoint)position     isResting:(BOOL)isResting
-{
-    return [self _initWithPreviousTouch:touch newPhase:phase position:position isResting:isResting force:0];
-}
-@end
-</code></pre></li>
-<li><p>下面需要将源文件生成一个动态库, 前提是要装Xcode,在终端中执行下面的代码,完成后桌面的<code>patch.m</code>文件会变成<code>patch.dylib</code>动态链接库文件.</p>
-<pre><code>clang -dynamiclib -framework AppKit ~/Desktop/patch.m -o ~/Desktop/patch.dylib
-</code></pre></li>
-<li><p>然后在终端中执行下面的命令给<code>Chrome</code>打补丁,同时Chrome浏览器也会打开</p>
-<pre><code>env DYLD_INSERT_LIBRARIES=~/Desktop/patch.dylib &quot;/Applications/Google Chrome.app/Contents/MacOS/Google Chrome&quot;
-</code></pre></li>
-</ol>
+    <updated>2016-02-16T10:47:38.000Z</updated>
+    <content type="html"><![CDATA[<p>Yosemite升级10.10.2 prerelease 版本之后蛋疼的事情发生了，safari打不开github不说，就连google chrome也一打开就崩溃，升级到40的dev版本依旧崩溃，网上找了找，遇到同样问题的还挺多，有人已经提供了临时的解决办法</p>
+<p>将以下代码保存为<code>patch.m</code>文件</p>
+<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="preprocessor">#import <span class="title">&lt;AppKit/AppKit.h&gt;</span></span></span><br><span class="line"></span><br><span class="line">__attribute((constructor)) <span class="keyword">void</span> Patch_10_10_2_entry()</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"10.10.2 patch loaded"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">NSTouch</span> ()</span></span><br><span class="line"></span><br><span class="line">- (<span class="keyword">id</span>)_initWithPreviousTouch:(<span class="built_in">NSTouch</span> *)touch newPhase:(<span class="built_in">NSTouchPhase</span>)phase position:(<span class="built_in">CGPoint</span>)position isResting:(<span class="built_in">BOOL</span>)isResting force:(<span class="keyword">double</span>)force;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">NSTouch</span> (<span class="title">Patch_10_10_2</span>)</span></span><br><span class="line"></span><br><span class="line">- (<span class="keyword">id</span>)_initWithPreviousTouch:(<span class="built_in">NSTouch</span> *)touch newPhase:(<span class="built_in">NSTouchPhase</span>)phase position:(<span class="built_in">CGPoint</span>)position isResting:(<span class="built_in">BOOL</span>)isResting</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">return</span> [<span class="keyword">self</span> _initWithPreviousTouch:touch newPhase:phase position:position isResting:isResting force:<span class="number">0</span>];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
+<p>下面需要将源文件生成一个动态库, 前提是要装Xcode,在终端中执行下面的代码,完成后桌面的<code>patch.m</code>文件会变成<code>patch.dylib</code>动态链接库文件.</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ clang -dynamiclib -framework AppKit ~/Desktop/patch.m -o ~/Desktop/patch.dylib</span><br></pre></td></tr></table></figure>
+<p>然后在终端中执行下面的命令给<code>Chrome</code>打补丁,同时Chrome浏览器也会打开</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ env DYLD_INSERT_LIBRARIES=~/Desktop/patch.dylib <span class="string">"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"</span></span><br></pre></td></tr></table></figure>
 <p>这样就大功告成了,Chrome不会崩溃了,但是这个终端窗口不能关,关了之后Chrome就无法正常运行了.但是这样新的问题就来了,重新打开都需要在终端执行第3步的命令,如果每次都这样太麻烦了,一点也不优雅,有没有优雅一点的办法呢?当然有,下面就来说说如何今天的重点</p>
-<p>###如何生成Mac上的可执行文件</p>
-<p>我们需要用到类Unix操作系统的一个命令<code>chmod</code>, <code>chmod</code>是用来改变文件文件的存取模式的, 我猜就是Change Mode的意思. </p>
-<ol>
-<li><p>首先我们新建一个文本文件, 输入上面第3步的终端命令,另存为没有格式的文件, 比如文件名为Chrome.</p>
-<pre><code>clang -dynamiclib -framework AppKit ~/Desktop/patch.m -o ~/Desktop/patch.dylib
-</code></pre></li>
-<li><p>然后打开终端, 输入下面的命令</p>
-<pre><code>sudo chmod u+x script
-</code></pre><p> 注意<code>script</code>就是刚才创建的<code>Chrome</code>文件的绝对路径,比如此处将<code>script</code>替换为<code>/Users/Sun/Desktop/Chrome</code>. </p>
-</li>
-</ol>
+<h3 id="u5982_u4F55_u751F_u6210Mac_u4E0A_u7684_u53EF_u6267_u884C_u6587_u4EF6"><a href="#u5982_u4F55_u751F_u6210Mac_u4E0A_u7684_u53EF_u6267_u884C_u6587_u4EF6" class="headerlink" title="如何生成Mac上的可执行文件"></a>如何生成Mac上的可执行文件</h3><p>我们需要用到类Unix操作系统的一个命令<code>chmod</code>, <code>chmod</code>是用来改变文件文件的存取模式的, 我猜就是Change Mode的意思.</p>
+<p>首先我们新建一个文本文件, 输入上面第3步的终端命令,另存为没有格式的文件, 比如文件名为Chrome.</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ clang -dynamiclib -framework AppKit ~/Desktop/patch.m -o ~/Desktop/patch.dylib</span><br></pre></td></tr></table></figure>
+<p>然后打开终端, 输入下面的命令</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo chmod u+x script</span><br></pre></td></tr></table></figure>
+<p>注意<code>script</code>就是刚才创建的<code>Chrome</code>文件的绝对路径,比如此处将<code>script</code>替换为<code>/Users/Sun/Desktop/Chrome</code>.</p>
 <p>执行完命令之后我们就会发现<code>Chrome</code>文件的图标变成了类似终端的图标的样子,这样就已经生成了可执行文件了, 双击这个文件就会自动打开终端执行文件里的命令启动Chrome浏览器了.</p>
 <p>这条<code>chmod</code>命令中的u就是User用户, <code>+</code>是增加权限, <code>x</code>是执行, 总的来说就是给这个文件增加用户和执行的模式.</p>
 <p>对于<code>chmod</code>命令更加详细的解释可以参看这里:<a href="http://www.cnblogs.com/younes/archive/2009/11/20/1607174.html" target="_blank" rel="external">Linux chmod命令详解</a></p>
 ]]></content>
     <summary type="html">
-    <![CDATA[<p>Yosemite升级10.10.2 prerelease版本之后蛋疼的事情发生了，safari打不开github不说，就连google chrome也一打开就崩溃，升级到40的dev版本依旧崩溃，网上找了找，遇到同样问题的还挺多，有人已经提供了临时的解决办法</p>
-<ol]]>
+    <![CDATA[<p>Yosemite升级10.10.2 prerelease 版本之后蛋疼的事情发生了，safari打不开github不说，就连google chrome也一打开就崩溃，升级到40的dev版本依旧崩溃，网上找了找，遇到同样问题的还挺多，有人已经提供了临时的解决办法</p>
+<p]]>
     </summary>
     
-      <category term="Mac技巧" scheme="http://AndroiOSX.com/categories/Mac%E6%8A%80%E5%B7%A7/"/>
+      <category term="OS X" scheme="http://AndroiOSX.com/categories/OS-X/"/>
     
   </entry>
   
@@ -209,7 +183,7 @@ __attribute((constructor)) void Patch_10_10_2_entry()
     <link href="http://AndroiOSX.com/2014/12/04/%E5%AF%B9extern%E7%9A%84%E7%90%86%E8%A7%A3/"/>
     <id>http://AndroiOSX.com/2014/12/04/对extern的理解/</id>
     <published>2014-12-03T17:46:00.000Z</published>
-    <updated>2016-01-25T17:22:14.000Z</updated>
+    <updated>2016-02-16T10:53:23.000Z</updated>
     <content type="html"><![CDATA[<p>很少用到extern这个关键字，对它的了解也只停留在大学课堂那一点印象：外部变量，与局部变量相对。<br>最近项目中需要用到全局变量，使用全局变量大体上分为3种方式：</p>
 <ul>
 <li>给AppDelegate增加property</li>
@@ -217,20 +191,19 @@ __attribute((constructor)) void Patch_10_10_2_entry()
 <li>使用外部变量extern关键字</li>
 </ul>
 <p>重点说说第三种方法，iOS里面使用extern关键字一般是用来声明全局的变量，在.h文件中声明：</p>
-<pre><code>extern NSString * const kLoginSuccessNotification;
-</code></pre><p>在.m文件中对变量进行赋值：</p>
-<pre><code>NSString * const kLoginSuccessNotification = @&quot;kLoginSuccessNotification&quot;;
-</code></pre><p>使用的时候只需要包含.h文件就可以通过变量名进行调用了。我开始的时候很奇怪这种写法的意义何在，相比宏定义来说要麻烦许多，工作量是宏定义的两倍。声明和实现分开写虽然增加了工作量，但是可以很好的隐藏常量的实际值，不让其他人访问。而且这样常量的类型是明确的，相比宏定义简单的字符串替换，编译器可以在编译阶段就检查出代码中的错误，使得我们的代码更加安全。</p>
+<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="keyword">extern</span> <span class="built_in">NSString</span> * <span class="keyword">const</span> kLoginSuccessNotification;</span><br></pre></td></tr></table></figure>
+<p>在.m文件中对变量进行赋值：</p>
+<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="built_in">NSString</span> * <span class="keyword">const</span> kLoginSuccessNotification = <span class="string">@"kLoginSuccessNotification"</span>;</span><br></pre></td></tr></table></figure>
+<p>使用的时候只需要包含.h文件就可以通过变量名进行调用了。我开始的时候很奇怪这种写法的意义何在，相比宏定义来说要麻烦许多，工作量是宏定义的两倍。声明和实现分开写虽然增加了工作量，但是可以很好的隐藏常量的实际值，不让其他人访问。而且这样常量的类型是明确的，相比宏定义简单的字符串替换，编译器可以在编译阶段就检查出代码中的错误，使得我们的代码更加安全。</p>
 <p>但是如果我们用相同的方法声明一个全局变量：</p>
-<pre><code>extern NSString * IMAPIRequestURL;
-</code></pre><p>因为我们不知道真实的值，所以不对其进行赋值，如果通过以下代码使用这个变量</p>
-<pre><code>extern NSString * IMAPIRequestURL;
-IMAPIRequestURL = @“http://www.google.com”;
-</code></pre><p>编译器就会报 ld: symbol(s) not found for architecture i386 错误，网上找到了半天在stackoverflow上找到了答案，原来是我对extern的理解还不够，回答着原文是这样的</p>
-<pre><code>extern means: &quot;this thing is defined somewhere else&quot;
-</code></pre><p>看到这个答案我恍然大悟，extern关键字告诉编译器我要使用的这个变量已经在其他地方定义了，但是声明和使用的时候都是用了extern关键字，编译器都是去别的文件找，找不到就自然报错了。所以解决办法就是在.m文件中对其进行实现，实现的时候就不能加extern关键字了</p>
-<pre><code>NSString * IMRequestURL = @&quot;http://www.google.com&quot;;
-</code></pre>]]></content>
+<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="keyword">extern</span> <span class="built_in">NSString</span> * IMAPIRequestURL;</span><br></pre></td></tr></table></figure>
+<p>因为我们不知道真实的值，所以不对其进行赋值，如果通过以下代码使用这个变量</p>
+<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="keyword">extern</span> <span class="built_in">NSString</span> * IMAPIRequestURL;</span><br><span class="line">IMAPIRequestURL = @“http:<span class="comment">//www.google.com”;</span></span><br></pre></td></tr></table></figure>
+<p>编译器就会报 ld: symbol(s) not found for architecture i386 错误，网上找到了半天在stackoverflow上找到了答案，原来是我对extern的理解还不够，回答着原文是这样的</p>
+<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="keyword">extern</span> means: <span class="string">"this thing is defined somewhere else"</span></span><br></pre></td></tr></table></figure>
+<p>看到这个答案我恍然大悟，extern关键字告诉编译器我要使用的这个变量已经在其他地方定义了，但是声明和使用的时候都是用了extern关键字，编译器都是去别的文件找，找不到就自然报错了。所以解决办法就是在.m文件中对其进行实现，实现的时候就不能加extern关键字了</p>
+<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="built_in">NSString</span> * IMRequestURL = <span class="string">@"http://www.google.com"</span>;</span><br></pre></td></tr></table></figure>
+]]></content>
     <summary type="html">
     <![CDATA[<p>很少用到extern这个关键字，对它的了解也只停留在大学课堂那一点印象：外部变量，与局部变量相对。<br>最近项目中需要用到全局变量，使用全局变量大体上分为3种方式：</p>
 <ul>
@@ -238,7 +211,7 @@ IMAPIRequestURL = @“http://www.google.com”;
 <li>使用单例模式，其]]>
     </summary>
     
-      <category term="iOS开发" scheme="http://AndroiOSX.com/categories/iOS%E5%BC%80%E5%8F%91/"/>
+      <category term="iOS" scheme="http://AndroiOSX.com/categories/iOS/"/>
     
   </entry>
   
@@ -247,7 +220,7 @@ IMAPIRequestURL = @“http://www.google.com”;
     <link href="http://AndroiOSX.com/2014/11/14/%E6%88%91%E4%B8%BA%E4%BB%80%E4%B9%88%E5%86%99%E5%8D%9A%E5%AE%A2/"/>
     <id>http://AndroiOSX.com/2014/11/14/我为什么写博客/</id>
     <published>2014-11-14T14:30:00.000Z</published>
-    <updated>2014-12-02T17:56:41.000Z</updated>
+    <updated>2016-02-16T10:54:41.000Z</updated>
     <content type="html"><![CDATA[<p>2014-11-16 Tina Luo 编辑</p>
 <p>博客的种类很多，有人喜欢写技术，有人喜欢写生活，有人记录自己的旅行…我为什么要写博客呢？</p>
 <p>一说到写博客我立马想到了写作文，一说的写作文我又立马想到了写日记，一说到写日记我突然又记起了记笔记。从小到大，写作一直是我的硬伤。虽然我很想写好日记，但写出来就像流水账；虽然我很想写好作文，但总是凑不够800字；虽然我很想做好笔记，但写出来就是一坨翔😂。此时我的脑海中突然回响起龚琳娜老师的神曲</p>
@@ -286,10 +259,9 @@ IMAPIRequestURL = @“http://www.google.com”;
     <link href="http://AndroiOSX.com/2014/11/13/iOS%E5%9B%BE%E7%89%87%E5%9C%86%E8%A7%92%E5%AE%9E%E7%8E%B0%E5%92%8C%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/"/>
     <id>http://AndroiOSX.com/2014/11/13/iOS图片圆角实现和性能优化/</id>
     <published>2014-11-13T04:31:19.000Z</published>
-    <updated>2016-01-25T17:22:01.000Z</updated>
+    <updated>2016-02-16T10:49:55.000Z</updated>
     <content type="html"><![CDATA[<p>iOS的系统之中用了大量的圆角和圆形的图案，为了是我们的应用更加“接地气”，在iOS开发中我们也会不可避免的需要为自己的View添加圆角。</p>
-<p>####我在开发中使用圆角有两种情况:</p>
-<ul>
+<h4 id="u6211_u5728_u5F00_u53D1_u4E2D_u4F7F_u7528_u5706_u89D2_u6709_u4E24_u79CD_u60C5_u51B5_3A"><a href="#u6211_u5728_u5F00_u53D1_u4E2D_u4F7F_u7528_u5706_u89D2_u6709_u4E24_u79CD_u60C5_u51B5_3A" class="headerlink" title="我在开发中使用圆角有两种情况:"></a>我在开发中使用圆角有两种情况:</h4><ul>
 <li>圆形的用户头像</li>
 <li>给View或Button添加圆角</li>
 </ul>
@@ -299,18 +271,15 @@ IMAPIRequestURL = @“http://www.google.com”;
 <figure class="highlight objc"><table><tr><td class="code"><pre><span class="line">view<span class="variable">.layer</span><span class="variable">.masksToBounds</span> = <span class="literal">YES</span></span><br></pre></td></tr></table></figure>
 <p>这样貌似很好的解决了圆形头像的问题，但是问题来了，当我真机运行程序的时候，滑动TableView会有明显的卡顿，我的界面并不复杂，TableView的Cell当中只有一个圆形的头像和几个Label，一屏也就七八个Cell，Cell的重用也没有问题，那为什么会有卡顿呢？经过多次的尝试终于发现这个罪魁祸首就是设置masksToBounds属性为YES，只要把这个属性设置为NO，界面立马就流畅了。但是设置为NO的话，圆形的头像效果就没有了，我感觉这是Cocoa框架的Bug，看来这条路是走不通了。那有没有别的办法呢？</p>
 <p>办法是有的，既然给UIImageView添加圆角行不通我们可以选择利用CoreGraphic框架将图片直接裁剪成圆形，方法如下</p>
-<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Begin a new image that will be the new image with the rounded corners</span></span><br><span class="line"><span class="comment">// (here with the size of an UIImageView)</span></span><br><span class="line"><span class="built_in">UIGraphicsBeginImageContextWithOptions</span>(<span class="keyword">self</span><span class="variable">.bounds</span><span class="variable">.size</span>, <span class="literal">NO</span>, <span class="number">0.0</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// Add a clip before drawing anything, in the shape of an rounded rect</span></span><br><span class="line">[[<span class="built_in">UIBezierPath</span> bezierPathWithRoundedRect:<span class="keyword">self</span><span class="variable">.bounds</span> cornerRadius:<span class="keyword">self</span><span class="variable">.bounds</span><span class="variable">.size</span><span class="variable">.width</span>/<span class="number">2</span>] addClip];</span><br><span class="line">                                        </span><br><span class="line"><span class="comment">// Draw your image</span></span><br><span class="line">[image drawInRect:<span class="keyword">self</span><span class="variable">.bounds</span>];</span><br><span class="line">            </span><br><span class="line"><span class="comment">// Get the image, here setting the UIImageView image</span></span><br><span class="line"><span class="keyword">self</span><span class="variable">.image</span> = <span class="built_in">UIGraphicsGetImageFromCurrentImageContext</span>();</span><br><span class="line">            </span><br><span class="line"><span class="comment">// Lets forget about that we were drawing</span></span><br><span class="line"><span class="built_in">UIGraphicsEndImageContext</span>();</span><br></pre></td></tr></table></figure>
+<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Begin a new image that will be the new image with the rounded corners</span></span><br><span class="line"><span class="comment">// (here with the size of an UIImageView)</span></span><br><span class="line"><span class="built_in">UIGraphicsBeginImageContextWithOptions</span>(<span class="keyword">self</span><span class="variable">.bounds</span><span class="variable">.size</span>, <span class="literal">NO</span>, <span class="number">0.0</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// Add a clip before drawing anything, in the shape of an rounded rect</span></span><br><span class="line">[[<span class="built_in">UIBezierPath</span> bezierPathWithRoundedRect:<span class="keyword">self</span><span class="variable">.bounds</span> cornerRadius:<span class="keyword">self</span><span class="variable">.bounds</span><span class="variable">.size</span><span class="variable">.width</span>/<span class="number">2</span>] addClip];</span><br><span class="line"></span><br><span class="line"><span class="comment">// Draw your image</span></span><br><span class="line">[image drawInRect:<span class="keyword">self</span><span class="variable">.bounds</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">// Get the image, here setting the UIImageView image</span></span><br><span class="line"><span class="keyword">self</span><span class="variable">.image</span> = <span class="built_in">UIGraphicsGetImageFromCurrentImageContext</span>();</span><br><span class="line"></span><br><span class="line"><span class="comment">// Lets forget about that we were drawing</span></span><br><span class="line"><span class="built_in">UIGraphicsEndImageContext</span>();</span><br></pre></td></tr></table></figure>
 <p>经过测试，这种方式在图片较多的情况下依然会有轻微的卡顿，但比起第一种方法已经改善了很多，基本可以满足项目的需求。</p>
 ]]></content>
     <summary type="html">
     <![CDATA[<p>iOS的系统之中用了大量的圆角和圆形的图案，为了是我们的应用更加“接地气”，在iOS开发中我们也会不可避免的需要为自己的View添加圆角。</p>
-<p>####我在开发中使用圆角有两种情况:</p>
-<ul>
-<li>圆形的用户头像</li>
-<li>给View或Butt]]>
+<h4 id="u6211_u5728_u5F00_u53D1_u4E2D_u4F7F_u7528_u5706_u89D2_u]]>
     </summary>
     
-      <category term="iOS开发" scheme="http://AndroiOSX.com/categories/iOS%E5%BC%80%E5%8F%91/"/>
+      <category term="iOS" scheme="http://AndroiOSX.com/categories/iOS/"/>
     
   </entry>
   
